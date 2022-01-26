@@ -32,3 +32,17 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    batchingBasedOnAgentsOption
+    
+- task: Veracode@3
+  inputs:
+    ConnectionDetailsSelection: 'Credentials'
+    apiId: '77e4d842c534056cf32699c23b77b811'
+    apiKey: 'f4a3b04084ed787797a72326184fdaea1a230c42bfdbd4eb7608650115998f54e7fb9d35dae0a9baac6a675e33dee34f6060e772a686f2571a8f8047627bd701'
+    veracodeAppProfile: '$(system.teamProject)'
+    version: '$(build.buildNumber)'
+    filepath: '$(build.artifactstagingdirectory)'
+    sandboxName: 'Git'
+    createSandBox: true
+    createProfile: true
+    maximumWaitTime: '360'
